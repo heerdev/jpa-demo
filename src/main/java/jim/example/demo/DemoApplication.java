@@ -9,13 +9,13 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EntityScan(
+/*@EntityScan(
 		basePackageClasses = { DemoApplication.class, Jsr310JpaConverters.class },
-		basePackages={"com.stakkbids.entity"}
-)
+		basePackages={"jim.example.demo"}
+)*/
 @ComponentScan(basePackages={"jim.example.demo"})
-@EnableJpaRepositories(basePackages="jim.example.demo.respositories")
-@EnableTransactionManagement
+/*@EnableJpaRepositories(basePackages="jim.example.demo.respositories")
+@EnableTransactionManagement*/
 public class DemoApplication {
 
 	public static void main(String[] args) {
