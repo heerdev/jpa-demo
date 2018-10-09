@@ -1,7 +1,9 @@
 package jim.example.demo.controller;
 
 
-import jim.example.demo.entity.Sponseres;
+import jim.example.demo.entity.Candidates;
+import jim.example.demo.entity.CaseStatus;
+import jim.example.demo.entity.SponsersRoles;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,10 +17,32 @@ import java.util.List;
 @RestController
 public class DemoController {
 
-    @RequestMapping(value = "/sponsers/list/manager-offer-receipient/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> getListofSponsersManagerOfficersReciepent(@PathVariable int id){
-        List<Sponseres>  sponseres= new ArrayList<>();
-        return new ResponseEntity<>(sponseres, HttpStatus.OK);
+    @RequestMapping(value = "/list/manager-offer-receipient/sponser/{sponserId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getListofSponsersManagerOfficersReciepent(@PathVariable int sponserId){
+        List<SponsersRoles>  sponseresRole= new ArrayList<>();
+        return new ResponseEntity<>(sponseresRole, HttpStatus.OK);
+
+    }
+
+
+    @RequestMapping(value = "/candidates/sponser/{sponserId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getCandidatesForSponser(@PathVariable int sponserId){
+        List<Candidates>  candidates= new ArrayList<>();
+        return new ResponseEntity<>(candidates, HttpStatus.OK);
+
+    }
+
+    @RequestMapping(value = "/candidates/casestatus/{caseStatusId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getCandidatesForCaseStatus(@PathVariable int caseStatusId){
+        List<Candidates>  candidates= new ArrayList<>();
+        return new ResponseEntity<>(candidates, HttpStatus.OK);
+
+    }
+
+    @RequestMapping(value = "/caseStatus/candidates/{candidateId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getStatusWithMxTimeForCandidate(@PathVariable int candidateId){
+        CaseStatus caseStatus= new CaseStatus();
+        return new ResponseEntity<>(caseStatus, HttpStatus.OK);
 
     }
 }
